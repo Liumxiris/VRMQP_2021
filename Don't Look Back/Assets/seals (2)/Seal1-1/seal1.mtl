@@ -1,0 +1,34 @@
+# 3ds Max Wavefront OBJ Exporter v0.99 - (c)2007 guruware
+# File Created: 13.10.2021 12:46:32
+
+newmtl off_decal16
+	Kd 0.9599999785 0.9599999785 0.9599999785
+	Ks 1.0000000000 1.0000000000 1.0000000000
+	Tr 0.0000000000
+	d 1.0000000000
+	Tf 1.0000000000 1.0000000000 1.0000000000
+	Pr 1.0000000000
+	Pm 0.0000000000
+	Pc 0.0000000000
+	Pcr 0.0000000000
+	Ni 1.5199999809
+	Ke 0.0000000000 0.0000000000 0.0000000000
+	illum 2
+	map_Kd C:\Users\76459\Downloads\Project Name (1)\DiffuseColor_Texture.png
+	map_Tr C:\Users\76459\Downloads\Project Name (1)\DiffuseColor_Texture.png
+
+newmtl Material__25
+	Kd 0.9599999785 0.9599999785 0.9599999785
+	Ks 1.0000000000 1.0000000000 1.0000000000
+	Tr 0.0000000000
+	d 1.0000000000
+	Tf 1.0000000000 1.0000000000 1.0000000000
+	Pr 1.0000000000
+	Pm 0.0000000000
+	Pc 0.0000000000
+	Pcr 0.0000000000
+	Ni 1.5199999809
+	illum 2
+	map_Kd C:\Users\76459\Downloads\Project Name (1)\Seal1.png
+	map_Tr C:\Users\76459\Downloads\Project Name (1)\Seal1_alpha.jpg
+	map_Ke C:\Users\76459\Downloads\Project Name (1)\Seal1.png
