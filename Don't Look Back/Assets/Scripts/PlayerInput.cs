@@ -11,12 +11,11 @@ public class PlayerInput : MonoBehaviour
     XRDirectInteractor RightController;
 
     bool isGrabbing = false;
-
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (isGrabbing) return;
     }
 
     // Update is called once per frame

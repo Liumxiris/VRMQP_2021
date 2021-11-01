@@ -8,9 +8,15 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField]
     Text SanityText;
 
+    [SerializeField]
+    Camera PlayerCam;
+
+    [SerializeField]
+    LayerMask MonsterLayer;
+
     float Sanity;
     float decreaseSpeed = 1.0f;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,19 +26,50 @@ public class PlayerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        changeSanity(-Time.deltaTime * decreaseSpeed);
+        if (isTurnBack())
+        {
+            //Debug.Log("Turing Back!");
+            updateSanity(-Time.deltaTime * decreaseSpeed * 2);
+        }
+        else
+            updateSanity(-Time.deltaTime * decreaseSpeed);
+
+        //Debug.DrawRay(PlayerCam.transform.position, PlayerCam.transform.forward * 10f, Color.red);
+        if (isLookingAtMonster()) {
+            Debug.Log("Looking at monster!");
+        }
     }
 
-    public void changeSanity(float value) {
+    public void updateSanity(float value) {
         Sanity += value;
 
         if (Sanity > 100) {
             Sanity = 100;
-        }else if (Sanity <= 0) {
+        } else if (Sanity <= 0) {
             Sanity = 0;
             //Game Over
         }
 
         SanityText.text = "Sanity : " + (Mathf.Round(Sanity * 10f) / 10f);
+    }
+
+    bool isTurnBack() {
+        float rotationValue = PlayerCam.transform.rotation.eulerAngles.y;
+        if (rotationValue > 80 && rotationValue < 280) 
+            return true;
+        else
+            return false;
+    }
+
+    bool isLookingAtMonster() {
+        RaycastHit hit;
+        if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, 10f, MonsterLayer))
+        {
+            if (hit.collider.gameObject.tag == "Monster")
+                return true;
+            else
+                return false;
+        }
+        else return false;
     }
 }

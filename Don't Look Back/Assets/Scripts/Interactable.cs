@@ -102,7 +102,7 @@ public class Interactable : MonoBehaviour
         if (Type == closest.gameObject.GetComponent<ClassifyBox>().Type)
         {
             // Add sanity
-            Player.GetComponent<PlayerLogic>().changeSanity(10);
+            Player.GetComponent<PlayerLogic>().updateSanity(10);
             // Play sound
             Debug.Log("Correct Classification!");
         }
