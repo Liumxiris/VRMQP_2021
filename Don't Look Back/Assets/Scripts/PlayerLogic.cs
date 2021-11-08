@@ -47,7 +47,7 @@ public class PlayerLogic : MonoBehaviour
         }
         else if(monsterCounter > 0)
         {
-            monsterCounter -= Time.deltaTime;
+            monsterCounter -= Time.deltaTime/2f;
         }
 
         if(monsterCounter >= MonsterRemoveTime)
@@ -80,7 +80,7 @@ public class PlayerLogic : MonoBehaviour
 
     bool isLookingAtMonster() {
         RaycastHit hit;
-        if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, 10f, MonsterLayer))
+        if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, 20f, MonsterLayer))
         {
             if (hit.collider.gameObject.tag == "Monster")
                 return true;
