@@ -6,7 +6,12 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField]
     int Type;
-    
+
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip pickedUpSound;
+
     //Color initialColor;
     bool m_Grabbed = false;
     List<GameObject> collideObjects = new List<GameObject>();
@@ -125,6 +130,7 @@ public class Interactable : MonoBehaviour
     public void Select()
     {
         m_Grabbed = true;
+        audioSource.PlayOneShot(pickedUpSound);
     }
 
     public void Deselect()
