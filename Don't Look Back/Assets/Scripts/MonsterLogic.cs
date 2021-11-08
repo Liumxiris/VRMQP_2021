@@ -36,6 +36,9 @@ public class MonsterLogic : MonoBehaviour
 
     int Step;
 
+    public AudioSource footstep;
+    public AudioSource breath;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,7 @@ public class MonsterLogic : MonoBehaviour
         Path.Add(Path2);
         Path.Add(Path3);
         StartRandomPath();
+        footstep = GetComponent<AudioSource>();
     }
 
     void StartRandomPath()
@@ -72,6 +76,20 @@ public class MonsterLogic : MonoBehaviour
         {
             followPath();
         }
+
+        if (!CoolDowning)
+        {
+            if (!footstep.isPlaying)
+            {
+                footstep.Play();
+            }
+
+            if (!breath.isPlaying) 
+            { 
+                breath.Play();
+            }
+        }
+
     }
 
     void followPath() {
