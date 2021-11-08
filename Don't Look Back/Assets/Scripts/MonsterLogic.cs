@@ -7,6 +7,16 @@ public class MonsterLogic : MonoBehaviour
     [SerializeField]
     List<GameObject> Path1 = new List<GameObject>();
 
+    [SerializeField]
+    List<GameObject> Path2 = new List<GameObject>();
+
+    [SerializeField]
+    List<GameObject> Path3 = new List<GameObject>();
+
+    List<List<GameObject>> Path = new List<List<GameObject>>();
+
+    [SerializeField]
+    GameObject Player;
 
     [SerializeField]
     float Speed = 1f;
@@ -14,6 +24,11 @@ public class MonsterLogic : MonoBehaviour
     [SerializeField]
     float RotationSpeed = 5f;
 
+    [SerializeField]
+    float CoolDown = 3f;
+
+    float CoolDownCount = 0;
+    bool CoolDowning = false;
 
     List<GameObject> CurrentPath = new List<GameObject>();
 
@@ -24,15 +39,39 @@ public class MonsterLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentPath = Path1;
-        NextWP = CurrentPath[0];
-        Step = 0;
+        Path.Add(Path1);
+        Path.Add(Path2);
+        Path.Add(Path3);
+        StartRandomPath();
+    }
+
+    void StartRandomPath()
+    {
+        CurrentPath = Path[Random.Range(0, Path.Count)];
+        transform.position = CurrentPath[0].transform.position;
+        NextWP = CurrentPath[1];
+        Step = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        followPath();
+        if (CoolDowning)
+        {
+            if (CoolDownCount > CoolDown)
+            {
+                StartRandomPath();
+                CoolDowning = false;
+            }
+            else
+            {
+                CoolDownCount += Time.deltaTime;
+            }
+        }
+        else
+        {
+            followPath();
+        }
     }
 
     void followPath() {
@@ -44,9 +83,9 @@ public class MonsterLogic : MonoBehaviour
                 NextWP = CurrentPath[Step];
             }
             else {
-                // Looping for now
-                Step = 0;
-                NextWP = CurrentPath[Step];
+                // Get to player
+                Player.GetComponent<PlayerLogic>().updateSanity(-50f);
+                returnToStart();
             }
         }
 
@@ -63,5 +102,12 @@ public class MonsterLogic : MonoBehaviour
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.down);
         //transform.rotation = q;
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * RotationSpeed);
+    }
+
+    public void returnToStart()
+    {
+        CoolDownCount = 0;
+        CoolDowning = true;
+        transform.position = new Vector3(100,0,0);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FileBox : MonoBehaviour
 {
     [SerializeField] Transform FileCreationLocation;
-    [SerializeField] GameObject FileSeal1;
+    [SerializeField] GameObject[] Files;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +21,8 @@ public class FileBox : MonoBehaviour
     public void CreateFile() {
         List<GameObject> files = new List<GameObject>(GameObject.FindGameObjectsWithTag("File"));
         if (files.Count != 0) return;
-        Instantiate(FileSeal1, FileCreationLocation.position, Quaternion.identity);
-        Debug.Log("Selected, Creating file");
+
+        Instantiate(Files[Random.Range(0, Files.Length)], FileCreationLocation.position, Quaternion.Euler(Vector3.zero));
     }
     
 }

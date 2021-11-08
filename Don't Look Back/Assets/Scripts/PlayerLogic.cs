@@ -12,8 +12,15 @@ public class PlayerLogic : MonoBehaviour
     Camera PlayerCam;
 
     [SerializeField]
+    GameObject Monster;
+
+    [SerializeField]
     LayerMask MonsterLayer;
 
+    [SerializeField]
+    float MonsterRemoveTime = 3f;
+
+    float monsterCounter = 0f;
     float Sanity;
     float decreaseSpeed = 1.0f;
 
@@ -36,7 +43,17 @@ public class PlayerLogic : MonoBehaviour
 
         //Debug.DrawRay(PlayerCam.transform.position, PlayerCam.transform.forward * 10f, Color.red);
         if (isLookingAtMonster()) {
-            Debug.Log("Looking at monster!");
+            monsterCounter += Time.deltaTime;
+        }
+        else if(monsterCounter > 0)
+        {
+            monsterCounter -= Time.deltaTime;
+        }
+
+        if(monsterCounter >= MonsterRemoveTime)
+        {
+            Monster.GetComponent<MonsterLogic>().returnToStart();
+            monsterCounter = 0;
         }
     }
 

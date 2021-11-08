@@ -63,7 +63,7 @@ public class Interactable : MonoBehaviour
         if(other.gameObject.tag == "ClassifyBox")
         {
             other.gameObject.GetComponent<Renderer>().material.color = BoxColor;
-            Debug.Log("Leaving reset color");
+            //Debug.Log("Leaving reset color");
         }
     }
 
@@ -85,6 +85,7 @@ public class Interactable : MonoBehaviour
 
         // Highlight cloest
         closest.GetComponent<Renderer>().material.color = Color.yellow;
+
         foreach (GameObject go in collideObjects)
         {
             if (go != closest)

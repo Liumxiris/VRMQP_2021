@@ -1,0 +1,2 @@
+The skybox for this pack was created using the Modular Skyscraper Building Pack by BrokeAss Games available in the Unity3D Asset Store.
+http://u3d.as/content/broke-ass-games/modular-skyscraper-building-pack/3e4
