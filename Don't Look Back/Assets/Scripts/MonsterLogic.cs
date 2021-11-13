@@ -128,4 +128,9 @@ public class MonsterLogic : MonoBehaviour
         CoolDowning = true;
         transform.position = new Vector3(100,0,0);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("collide!");
+    }
 }
