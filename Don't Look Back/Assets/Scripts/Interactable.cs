@@ -108,21 +108,23 @@ public class Interactable : MonoBehaviour
         if (Type == closest.gameObject.GetComponent<ClassifyBox>().Type)
         {
             // Add sanity
-            Player.GetComponent<PlayerLogic>().updateSanity(10);
+            Player.GetComponent<PlayerLogic>().updateSanity(6);
             // Play sound
             Debug.Log("Correct Classification!");
+            // Put into box
+            closest.gameObject.GetComponent<ClassifyBox>().StashFile(this.gameObject);
         }
         else
         {
             // Penalty
             // Play sound
             Debug.Log("Wrong Classification!");
+            // Destroy Self
+            Destroy(gameObject);
         }
 
         // Reset Color
         closest.GetComponent<Renderer>().material.color = BoxColor;
-        // Destroy Self
-        Destroy(this.gameObject);
     }
 
 

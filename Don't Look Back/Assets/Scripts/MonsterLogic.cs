@@ -27,13 +27,28 @@ public class MonsterLogic : MonoBehaviour
     [SerializeField]
     float CoolDown = 3f;
 
+    [SerializeField]
+    Renderer MonsterRenderer;
+
+    [SerializeField]
+    float InvisCD;
+
+    [SerializeField]
+    float InvisTime;
+
+    bool InvisCDing;
+    float InvisCDCount;
+    float InvisTimeCount;
+
+    bool ChagingAlpha;
+    float CurrentAlpha;
+    float TargetAlpha;
+
     float CoolDownCount = 0;
     bool CoolDowning = false;
 
     List<GameObject> CurrentPath = new List<GameObject>();
-
     GameObject NextWP;
-
     int Step;
 
     public AudioSource footstep;
@@ -47,6 +62,7 @@ public class MonsterLogic : MonoBehaviour
         Path.Add(Path3);
         StartRandomPath();
         footstep = GetComponent<AudioSource>();
+        //ChangeAlpha(0);
     }
 
     void StartRandomPath()
@@ -75,21 +91,51 @@ public class MonsterLogic : MonoBehaviour
         else
         {
             followPath();
-        }
 
-        if (!CoolDowning)
-        {
+            if (InvisCDing)
+            {
+                InvisTimeCount += Time.deltaTime;
+                if(InvisTimeCount >= InvisTime)
+                {
+                    ChangeAlpha(1);
+                    InvisTimeCount = 0;
+                    InvisCDing = false;
+                }
+            }
+            else
+            {
+                InvisCDCount += Time.deltaTime;
+                if(InvisCDCount >= InvisCD)
+                {
+                    ChangeAlpha(0);
+                    InvisCDCount = 0;
+                    InvisCDing = true;
+                }
+            }
+
+            if (ChagingAlpha)
+            {
+                if (Mathf.Abs(TargetAlpha - CurrentAlpha) <= 0.1)
+                {
+                    ChangingAlpha(TargetAlpha);
+                    ChagingAlpha = false;
+                }
+                else
+                {
+                    ChangingAlpha(Mathf.Lerp(CurrentAlpha, TargetAlpha, Time.deltaTime));
+                }
+            }
+
             if (!footstep.isPlaying)
             {
                 footstep.Play();
             }
 
-            if (!breath.isPlaying) 
-            { 
+            if (!breath.isPlaying)
+            {
                 breath.Play();
             }
         }
-
     }
 
     void followPath() {
@@ -129,8 +175,29 @@ public class MonsterLogic : MonoBehaviour
         transform.position = new Vector3(100,0,0);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void ChangeAlpha(float alpha)
     {
-        Debug.Log("collide!");
+        TargetAlpha = alpha;
+        CurrentAlpha = MonsterRenderer.material.color.a;
+        ChagingAlpha = true;
+    }
+
+    void ChangingAlpha(float alpha)
+    {
+        Color monsterColor = MonsterRenderer.material.color;
+        CurrentAlpha = monsterColor.a;
+        monsterColor.a = alpha;
+        MonsterRenderer.material.color = monsterColor;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Trigger")
+        {
+            if (other.gameObject.name == "TriggerPoint1")
+            {
+                Debug.Log("Reached TriggerPoint1");
+            }
+        }
     }
 }

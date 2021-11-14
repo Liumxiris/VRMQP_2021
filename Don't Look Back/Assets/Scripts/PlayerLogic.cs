@@ -47,7 +47,7 @@ public class PlayerLogic : MonoBehaviour
         }
         else if(monsterCounter > 0)
         {
-            monsterCounter -= Time.deltaTime/2f;
+            monsterCounter -= Time.deltaTime / 100f;
         }
 
         if(monsterCounter >= MonsterRemoveTime)

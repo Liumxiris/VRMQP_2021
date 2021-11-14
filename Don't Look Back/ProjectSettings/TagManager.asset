@@ -8,6 +8,8 @@ TagManager:
   - ClassifyBox
   - Bound
   - Monster
+  - Trigger
+  - ClassifiedFile
   layers:
   - Default
   - TransparentFX
