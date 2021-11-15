@@ -8,9 +8,13 @@ public class Interactable : MonoBehaviour
     int Type;
 
     [SerializeField]
-    AudioSource audioSource;
-    [SerializeField]
     AudioClip pickedUpSound;
+
+    [SerializeField]
+    AudioClip sortingFail;
+
+    [SerializeField]
+    AudioClip sortingSucceed;
 
     //Color initialColor;
     bool m_Grabbed = false;
@@ -110,6 +114,7 @@ public class Interactable : MonoBehaviour
             // Add sanity
             Player.GetComponent<PlayerLogic>().updateSanity(6);
             // Play sound
+            AudioSource.PlayClipAtPoint(sortingSucceed, Player.transform.position, 0.35f);
             Debug.Log("Correct Classification!");
             // Put into box
             closest.gameObject.GetComponent<ClassifyBox>().StashFile(this.gameObject);
@@ -118,6 +123,7 @@ public class Interactable : MonoBehaviour
         {
             // Penalty
             // Play sound
+            AudioSource.PlayClipAtPoint(sortingFail, Player.transform.position, 0.4f);
             Debug.Log("Wrong Classification!");
             // Destroy Self
             Destroy(gameObject);
@@ -132,7 +138,7 @@ public class Interactable : MonoBehaviour
     public void Select()
     {
         m_Grabbed = true;
-        audioSource.PlayOneShot(pickedUpSound);
+        AudioSource.PlayClipAtPoint(pickedUpSound, Player.transform.position, 0.4f);
     }
 
     public void Deselect()

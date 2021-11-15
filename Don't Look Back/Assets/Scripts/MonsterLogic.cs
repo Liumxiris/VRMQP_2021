@@ -54,7 +54,10 @@ public class MonsterLogic : MonoBehaviour
     public AudioSource breath;
 
     [SerializeField]
-    AudioSource audioSource;
+    AudioClip monsterVanish;
+
+    [SerializeField]
+    AudioClip monsterInvis;
 
     [SerializeField]
     AudioClip open_close_door;
@@ -84,7 +87,7 @@ public class MonsterLogic : MonoBehaviour
         transform.position = CurrentPath[0].transform.position;
         NextWP = CurrentPath[1];
         Step = 1;
-        audioSource.PlayOneShot(open_close_door);
+        AudioSource.PlayClipAtPoint(open_close_door, CurrentPath[0].transform.position, 1);
     }
 
     // Update is called once per frame
@@ -121,6 +124,7 @@ public class MonsterLogic : MonoBehaviour
                 InvisCDCount += Time.deltaTime;
                 if(InvisCDCount >= InvisCD)
                 {
+                    AudioSource.PlayClipAtPoint(monsterInvis, transform.position, 1);
                     ChangeAlpha(0);
                     InvisCDCount = 0;
                     InvisCDing = true;
@@ -179,6 +183,7 @@ public class MonsterLogic : MonoBehaviour
 
     public void returnToStart()
     {
+        AudioSource.PlayClipAtPoint(monsterVanish, transform.position, 1);
         CoolDownCount = 0;
         CoolDowning = true;
         transform.position = new Vector3(100,0,0);
@@ -203,22 +208,25 @@ public class MonsterLogic : MonoBehaviour
     {
         if(other.gameObject.tag == "Trigger")
         {
-            if (other.gameObject.name == "TriggerPoint_Box1")
+            if (other.gameObject.name == "TriggerPoint_Box1") // collide with Box1
             {
-                audioSource.PlayOneShot(collideBox);
-                Debug.Log("Reached TriggerPoint1");
+                AudioSource.PlayClipAtPoint(collideBox, other.transform.position, 1);
             }
-            else if (other.gameObject.name == "TriggerPoint_Box2")
+            else if (other.gameObject.name == "TriggerPoint_Box2") // collide with Box2
             {
-                audioSource.PlayOneShot(collideBox);
+                AudioSource.PlayClipAtPoint(collideBox, other.transform.position, 1);
             }
-            else if (other.gameObject.name == "TriggerPoint_Light1")
+            else if (other.gameObject.name == "TriggerPoint_TallLamp2") // collide with tall lamp on behind
             {
-                audioSource.PlayOneShot(light_flickers);
+                AudioSource.PlayClipAtPoint(light_flickers, other.transform.position, 1);
             }
-            else if (other.gameObject.name == "TriggerPoint_Bookshelf")
+            else if (other.gameObject.name == "TriggerPoint_Bookshelf_Left" || other.gameObject.name == "TriggerPoint_Bookshelf_Right") // collide with bookshelfs
             {
-                audioSource.PlayOneShot(collideBookshelf);
+                AudioSource.PlayClipAtPoint(collideBookshelf, other.transform.position, 1);
+            }
+            else if (other.gameObject.name == "TriggerPoint_Tablelamp_behind") // collide with table lamp on behind
+            {
+                AudioSource.PlayClipAtPoint(light_flickers, other.transform.position, 1);
             }
         }
     }
