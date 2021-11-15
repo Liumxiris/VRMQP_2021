@@ -869,7 +869,7 @@ GameObject:
   - component: {fileID: 200612371}
   - component: {fileID: 200612370}
   m_Layer: 0
-  m_Name: TriggerPoint1
+  m_Name: TriggerPoint_Box1
   m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -896,7 +896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200612369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.26, y: 0, z: -2.342}
+  m_LocalPosition: {x: 1.513, y: 0.207, z: 0.789}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1657,8 +1657,8 @@ GameObject:
   m_Component:
   - component: {fileID: 447390346}
   - component: {fileID: 447390342}
-  - component: {fileID: 447390343}
   - component: {fileID: 447390344}
+  - component: {fileID: 447390343}
   - component: {fileID: 447390347}
   - component: {fileID: 447390345}
   m_Layer: 6
@@ -1705,8 +1705,12 @@ MonoBehaviour:
   MonsterRenderer: {fileID: 686538633}
   InvisCD: 8
   InvisTime: 5
-  footstep: {fileID: 447390343}
   breath: {fileID: 447390344}
+  audioSource: {fileID: 447390343}
+  open_close_door: {fileID: 8300000, guid: e645f2e35c028a943aaec25c4d7a1cd9, type: 3}
+  collideBox: {fileID: 8300000, guid: 4ae1e01e212d38248863bc9afba51c8a, type: 3}
+  light_flickers: {fileID: 8300000, guid: 0c3f17c3b9547a44e9c90ed64f6ebb6c, type: 3}
+  collideBookshelf: {fileID: 8300000, guid: 04ecff0b10518e640ba44aa871bd4d7c, type: 3}
 --- !u!82 &447390343
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1717,18 +1721,18 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5cd5683fe13d0a946bb6eb29d9556f52, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
-  Spatialize: 1
+  Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 75
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1763,7 +1767,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1824,9 +1828,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 75
+  MaxDistance: 60
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -2569,7 +2573,7 @@ GameObject:
   - component: {fileID: 627381172}
   - component: {fileID: 627381171}
   m_Layer: 0
-  m_Name: TriggerPoint2
+  m_Name: TriggerPoint_Box2
   m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3547,6 +3551,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858496352}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &871694298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 871694300}
+  - component: {fileID: 871694299}
+  m_Layer: 0
+  m_Name: TriggerPoint_Light1
+  m_TagString: Trigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &871694299
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871694298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &871694300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871694298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.361, y: 0.111, z: -2.902}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &874280283
 GameObject:
   m_ObjectHideFlags: 0
@@ -6460,7 +6508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482617058}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8099537, y: 2.0231485, z: 1.3111358}
+  m_LocalPosition: {x: 5.617, y: 2.0231485, z: 1.3111358}
   m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_Children: []
   m_Father: {fileID: 171845867}
@@ -9449,6 +9497,50 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: ae1f5e5898afb2d49999d9dc3c087c98, type: 3}
+--- !u!1 &1999179067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999179069}
+  - component: {fileID: 1999179068}
+  m_Layer: 0
+  m_Name: TriggerPoint_Bookshelf
+  m_TagString: Trigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1999179068
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999179067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1999179069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999179067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.371, y: 0.111, z: -2.902}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2018089366
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9529,8 +9621,8 @@ Transform:
   - {fileID: 1491726863}
   - {fileID: 1433790863}
   - {fileID: 1376554973}
-  - {fileID: 1736684239}
   - {fileID: 1763999558}
+  - {fileID: 1736684239}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -51,8 +51,22 @@ public class MonsterLogic : MonoBehaviour
     GameObject NextWP;
     int Step;
 
-    public AudioSource footstep;
     public AudioSource breath;
+
+    [SerializeField]
+    AudioSource audioSource;
+
+    [SerializeField]
+    AudioClip open_close_door;
+
+    [SerializeField]
+    AudioClip collideBox;
+
+    [SerializeField]
+    AudioClip light_flickers;
+
+    [SerializeField]
+    AudioClip collideBookshelf;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +75,6 @@ public class MonsterLogic : MonoBehaviour
         Path.Add(Path2);
         Path.Add(Path3);
         StartRandomPath();
-        footstep = GetComponent<AudioSource>();
         //ChangeAlpha(0);
     }
 
@@ -71,6 +84,7 @@ public class MonsterLogic : MonoBehaviour
         transform.position = CurrentPath[0].transform.position;
         NextWP = CurrentPath[1];
         Step = 1;
+        audioSource.PlayOneShot(open_close_door);
     }
 
     // Update is called once per frame
@@ -124,11 +138,6 @@ public class MonsterLogic : MonoBehaviour
                 {
                     ChangingAlpha(Mathf.Lerp(CurrentAlpha, TargetAlpha, Time.deltaTime));
                 }
-            }
-
-            if (!footstep.isPlaying)
-            {
-                footstep.Play();
             }
 
             if (!breath.isPlaying)
@@ -194,9 +203,22 @@ public class MonsterLogic : MonoBehaviour
     {
         if(other.gameObject.tag == "Trigger")
         {
-            if (other.gameObject.name == "TriggerPoint1")
+            if (other.gameObject.name == "TriggerPoint_Box1")
             {
+                audioSource.PlayOneShot(collideBox);
                 Debug.Log("Reached TriggerPoint1");
+            }
+            else if (other.gameObject.name == "TriggerPoint_Box2")
+            {
+                audioSource.PlayOneShot(collideBox);
+            }
+            else if (other.gameObject.name == "TriggerPoint_Light1")
+            {
+                audioSource.PlayOneShot(light_flickers);
+            }
+            else if (other.gameObject.name == "TriggerPoint_Bookshelf")
+            {
+                audioSource.PlayOneShot(collideBookshelf);
             }
         }
     }
