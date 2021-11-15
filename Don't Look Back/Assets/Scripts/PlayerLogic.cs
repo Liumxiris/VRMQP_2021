@@ -24,6 +24,8 @@ public class PlayerLogic : MonoBehaviour
     float Sanity;
     float decreaseSpeed = 1.0f;
 
+    public AudioSource heartbeat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,7 @@ public class PlayerLogic : MonoBehaviour
 
         //Debug.DrawRay(PlayerCam.transform.position, PlayerCam.transform.forward * 10f, Color.red);
         if (isLookingAtMonster()) {
+            updateSanity(-Time.deltaTime * decreaseSpeed * 4);
             monsterCounter += Time.deltaTime;
         }
         else if(monsterCounter > 0)
@@ -54,6 +57,21 @@ public class PlayerLogic : MonoBehaviour
         {
             Monster.GetComponent<MonsterLogic>().returnToStart();
             monsterCounter = 0;
+        }
+
+        if (Sanity < 40f)
+        {
+            if (!heartbeat.isPlaying)
+            {
+                heartbeat.Play();
+            }
+        }
+        else 
+        {
+            if (heartbeat.isPlaying)
+            {
+                heartbeat.Stop();
+            }
         }
     }
 
