@@ -397,7 +397,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 6570396863675690510, guid: 2129e40149892da4fba022dd34b6fd7e, type: 3}
+  m_ModelPrefab: {fileID: -8679921383154817045, guid: 490e3b0511ede254eaba6383491cb41d, type: 3}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -2737,7 +2737,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 6570396863675690510, guid: 2129e40149892da4fba022dd34b6fd7e, type: 3}
+  m_ModelPrefab: {fileID: -8679921383154817045, guid: 11dc015a220f94b4da4b7abd9189ce4c, type: 3}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -9529,8 +9529,8 @@ Transform:
   - {fileID: 1491726863}
   - {fileID: 1433790863}
   - {fileID: 1376554973}
-  - {fileID: 1736684239}
   - {fileID: 1763999558}
+  - {fileID: 1736684239}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
