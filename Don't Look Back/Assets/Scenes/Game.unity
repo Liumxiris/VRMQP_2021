@@ -6558,6 +6558,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: e7159b6558ba96640ab07b64b39b906d, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: e7159b6558ba96640ab07b64b39b906d, type: 3}
       propertyPath: m_InnerSpotAngle
       value: 36.768333
       objectReference: {fileID: 0}
