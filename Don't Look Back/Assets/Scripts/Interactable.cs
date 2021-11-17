@@ -113,6 +113,7 @@ public class Interactable : MonoBehaviour
         {
             // Add sanity
             Player.GetComponent<PlayerLogic>().updateSanity(6);
+            Player.GetComponent<PlayerLogic>().updateFileCompletion();
             // Play sound
             AudioSource.PlayClipAtPoint(sortingSucceed, Player.transform.position, 0.35f);
             Debug.Log("Correct Classification!");

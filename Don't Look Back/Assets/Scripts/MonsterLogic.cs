@@ -219,6 +219,8 @@ public class MonsterLogic : MonoBehaviour
             else if (other.gameObject.name == "TriggerPoint_TallLamp2") // collide with tall lamp on behind
             {
                 AudioSource.PlayClipAtPoint(light_flickers, other.transform.position, 1);
+                other.gameObject.GetComponent<BlinkingLight>().ReduceLife();
+                other.gameObject.GetComponent<BlinkingLight>().BlinkForTime(7);
             }
             else if (other.gameObject.name == "TriggerPoint_Bookshelf_Left" || other.gameObject.name == "TriggerPoint_Bookshelf_Right") // collide with bookshelfs
             {
