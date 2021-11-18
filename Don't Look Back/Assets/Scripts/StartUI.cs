@@ -20,7 +20,7 @@ public class StartUI : MonoBehaviour
     void Start()
     {
         HelpMenu.SetActive(false);
-        Helper();
+        //Helper();
     }
 
     public void StartGame() {
