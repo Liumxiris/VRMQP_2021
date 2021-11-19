@@ -13,6 +13,9 @@ public class MonsterLogic : MonoBehaviour
     [SerializeField]
     List<GameObject> Path3 = new List<GameObject>();
 
+    [SerializeField]
+    List<GameObject> Path4 = new List<GameObject>();
+
     List<List<GameObject>> Path = new List<List<GameObject>>();
 
     [SerializeField]
@@ -62,9 +65,31 @@ public class MonsterLogic : MonoBehaviour
     [SerializeField]
     AudioClip open_close_door;
 
+    // Environment: Box
     [SerializeField]
     AudioClip collideBox;
 
+    [SerializeField]
+    AudioClip collideBox_Left;
+
+    [SerializeField]
+    AudioClip collideBox_Right;
+
+    // Environment: Books
+    [SerializeField]
+    AudioClip collideBooks_Left;
+
+    [SerializeField]
+    AudioClip collideBooks_Right;
+
+    // Environment: Paper on Ground
+    [SerializeField]
+    AudioClip paper_Left;
+
+    [SerializeField]
+    AudioClip paper_Right;
+
+    // Environment: Other
     [SerializeField]
     AudioClip light_flickers;
 
@@ -217,13 +242,13 @@ public class MonsterLogic : MonoBehaviour
         {
             if (other.gameObject.name == "TriggerPoint_Box1") // collide with Box1
             {
-                AudioSource.PlayClipAtPoint(collideBox, other.transform.position, 1);
+                AudioSource.PlayClipAtPoint(collideBox_Left, other.transform.position, 1);
             }
-            else if (other.gameObject.name == "TriggerPoint_Box2") // collide with Box2
+            else if (other.gameObject.name == "TriggerPoint_Books") // collide with Box2
             {
-                AudioSource.PlayClipAtPoint(collideBox, other.transform.position, 1);
+                AudioSource.PlayClipAtPoint(collideBooks_Right, other.transform.position, 1);
             }
-            else if (other.gameObject.name == "TriggerPoint_TallLamp2") // collide with tall lamp on behind
+            else if (other.gameObject.name == "TriggerPoint_TallLamp2" || other.gameObject.name == "TriggerPoint_Tablelamp_behind") // collide with tall lamp on behind
             {
                 AudioSource.PlayClipAtPoint(light_flickers, other.transform.position, 1);
                 other.gameObject.GetComponent<BlinkingLight>().ReduceLife();
@@ -233,10 +258,11 @@ public class MonsterLogic : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(collideBookshelf, other.transform.position, 1);
             }
-            else if (other.gameObject.name == "TriggerPoint_Tablelamp_behind") // collide with table lamp on behind
+            else if (other.gameObject.name == "TriggerPoint_Paper_On_Ground") // collide with paper
             {
-                AudioSource.PlayClipAtPoint(light_flickers, other.transform.position, 1);
+                AudioSource.PlayClipAtPoint(paper_Left, other.transform.position, 1);
             }
+
             ChangeAlpha(1);
             InvisTimeCount = 0;
             InvisCDing = false;
