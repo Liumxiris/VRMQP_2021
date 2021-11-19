@@ -4614,8 +4614,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1529332746}
-        m_TargetAssemblyTypeName: StartUI, Assembly-CSharp
-        m_MethodName: StartGame
+        m_TargetAssemblyTypeName: LoseUI, Assembly-CSharp
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6941,8 +6941,8 @@ GameObject:
   - component: {fileID: 1529332749}
   - component: {fileID: 1529332748}
   - component: {fileID: 1529332747}
-  - component: {fileID: 1529332746}
   - component: {fileID: 1529332745}
+  - component: {fileID: 1529332746}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6978,7 +6978,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1529332744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5121646ed63f94a4c820d01db6cc5eb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bd0ac4cdced7d1428da7cac9306ecd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1529332747
@@ -9940,8 +9940,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1529332746}
-        m_TargetAssemblyTypeName: StartUI, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_TargetAssemblyTypeName: LoseUI, Assembly-CSharp
+        m_MethodName: QuitToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
