@@ -1942,11 +1942,11 @@ MonoBehaviour:
   - {fileID: 95188788}
   - {fileID: 1210921289}
   Player: {fileID: 1564529224}
-  Speed: 0.5
+  Speed: 0.3
   RotationSpeed: 3
   CoolDown: 5
   MonsterRenderer: {fileID: 686538633}
-  InvisCD: 5
+  InvisCD: 1
   InvisTime: 10
   breath: {fileID: 447390344}
   monsterVanish: {fileID: 8300000, guid: bff88501987c8d543b3f3361537d022a, type: 3}

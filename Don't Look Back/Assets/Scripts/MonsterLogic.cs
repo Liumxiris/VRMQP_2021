@@ -79,6 +79,7 @@ public class MonsterLogic : MonoBehaviour
         Path.Add(Path3);
         StartRandomPath();
         //ChangeAlpha(0);
+        ChangingAlpha(0);
     }
 
     void StartRandomPath()
@@ -109,6 +110,18 @@ public class MonsterLogic : MonoBehaviour
         {
             followPath();
 
+            if (!InvisCDing)
+            {
+                InvisCDCount += Time.deltaTime;
+                if (InvisCDCount >= InvisCD)
+                {
+                    AudioSource.PlayClipAtPoint(monsterInvis, transform.position, 1);
+                    ChangeAlpha(0);
+                    InvisCDCount = 0;
+                    InvisCDing = true;
+                }
+            }
+            /*
             if (InvisCDing)
             {
                 InvisTimeCount += Time.deltaTime;
@@ -121,15 +134,9 @@ public class MonsterLogic : MonoBehaviour
             }
             else
             {
-                InvisCDCount += Time.deltaTime;
-                if(InvisCDCount >= InvisCD)
-                {
-                    AudioSource.PlayClipAtPoint(monsterInvis, transform.position, 1);
-                    ChangeAlpha(0);
-                    InvisCDCount = 0;
-                    InvisCDing = true;
-                }
+
             }
+            */
 
             if (ChagingAlpha)
             {
@@ -140,7 +147,7 @@ public class MonsterLogic : MonoBehaviour
                 }
                 else
                 {
-                    ChangingAlpha(Mathf.Lerp(CurrentAlpha, TargetAlpha, Time.deltaTime));
+                    ChangingAlpha(Mathf.Lerp(CurrentAlpha, TargetAlpha, Time.deltaTime * 2));
                 }
             }
 
@@ -230,6 +237,9 @@ public class MonsterLogic : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(light_flickers, other.transform.position, 1);
             }
+            ChangeAlpha(1);
+            InvisTimeCount = 0;
+            InvisCDing = false;
         }
     }
 }
