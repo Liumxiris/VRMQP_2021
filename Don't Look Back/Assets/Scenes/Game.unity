@@ -771,7 +771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &171845866
 GameObject:
@@ -1700,7 +1700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c57d8c07db1bbd34184a96ddb028284c, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c57d8c07db1bbd34184a96ddb028284c, type: 3}
       propertyPath: m_LocalScale.x
@@ -2218,7 +2218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4838759987391654caf559ad391a6bd4, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4838759987391654caf559ad391a6bd4, type: 3}
       propertyPath: m_LocalScale.x
@@ -4497,7 +4497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d176a592188392b4981c6c8152c0ce0e, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d176a592188392b4981c6c8152c0ce0e, type: 3}
       propertyPath: m_LocalScale.x
@@ -4891,7 +4891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0e6157101c3809459c828f7f654b1f0, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0e6157101c3809459c828f7f654b1f0, type: 3}
       propertyPath: m_LocalScale.x
@@ -5530,7 +5530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e02059b4abc0bed45a440adec4d7f226, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e02059b4abc0bed45a440adec4d7f226, type: 3}
       propertyPath: m_LocalScale.x
@@ -5698,7 +5698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4272440860217892, guid: 6bf591f3c2746ee4bbc962721f73e404, type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4272440860217892, guid: 6bf591f3c2746ee4bbc962721f73e404, type: 3}
       propertyPath: m_LocalScale.x
@@ -6867,7 +6867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e02059b4abc0bed45a440adec4d7f226, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e02059b4abc0bed45a440adec4d7f226, type: 3}
       propertyPath: m_LocalScale.x
@@ -6967,6 +6967,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1420023862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1420023864}
+  - component: {fileID: 1420023863}
+  m_Layer: 0
+  m_Name: TriggerPoint_NearPlayer
+  m_TagString: Trigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1420023863
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420023862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.31, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1420023864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420023862}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06, y: 0.111, z: 1.196}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1420166969 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 1f1a03bb67a5ece49a835e24c2478816, type: 3}
@@ -7839,7 +7883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0e6157101c3809459c828f7f654b1f0, type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0e6157101c3809459c828f7f654b1f0, type: 3}
       propertyPath: m_LocalScale.x
@@ -9121,7 +9165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4272440860217892, guid: 6bf591f3c2746ee4bbc962721f73e404, type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4272440860217892, guid: 6bf591f3c2746ee4bbc962721f73e404, type: 3}
       propertyPath: m_LocalScale.x
@@ -9644,7 +9688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4838759987391654caf559ad391a6bd4, type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4838759987391654caf559ad391a6bd4, type: 3}
       propertyPath: m_LocalScale.x
